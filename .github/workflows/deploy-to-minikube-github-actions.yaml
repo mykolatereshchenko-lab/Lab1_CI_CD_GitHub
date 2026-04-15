@@ -25,6 +25,10 @@ jobs:
       run: |
         kubectl get pods -A
         kubectl describe pods
+    - name: Check images
+      run: |
+        eval $(minikube -p minikube docker-env)
+        docker images
     - name: Test service URLs
       run: |
           minikube service list
